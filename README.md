@@ -37,7 +37,7 @@ vector<pair<int, int>> twoSum(vector<int>&array, int target) {
 
 ### Та же задача, но теперь нужно вернуть не эл-ты а их индексы
 
-Так как теперь нужно вернуть пару индексов исп-ем unordered_map (то же хэш таблица)
+Так как теперь нужно вернуть пару индексов исп-ем unordered_map (тоже хэш таблица)
 
 ```c++
 vector<pair<int, int>> twoSum(vector<int>& array, int target) {
