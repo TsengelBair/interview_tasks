@@ -86,3 +86,77 @@ list<int> reverseList(list<int>&p_list) {
 };
 ```
 
+### 3. Написать реализацию бинарного дерева с методами вставки, поиска и вывода в консоль
+
+Бинарное дерево - это набор структур (Nodes), сама структура содержит в себе какие то данные (int data) и два указателя на левого и правого потомка 
+
+```c++
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+}
+```
+
+Решение 
+
+```c++
+struct Node
+{
+	int num;
+	Node* right;
+	Node* left;
+
+	Node(int n) : num(n), right(nullptr), left(nullptr) {};
+
+	// Вывести в консоль все эл-ты inOrder
+	void inOrder() {
+		if (left != nullptr) {
+			left->inOrder();
+		}
+
+		cout << num << " ";
+
+		if (right != nullptr) {
+			right->inOrder();
+		}
+	};
+
+	// Вставка
+	void insert(int n) {
+		if (n > num) {
+			if (right == nullptr) {
+				right = new Node(n);
+			}
+			else {
+				right->insert(n);
+			}
+		}
+		else {
+			if (left == nullptr) {
+				left = new Node(n);
+			}
+			else {
+				left->insert(n);
+			}
+		}
+	}
+
+	// Поиск
+	Node* search(int n) {
+		if (n == num) {
+			return this;
+		}
+		else if (n < num && left != nullptr) {
+			left->search(n);
+		}
+		else if (n > num && right != nullptr) {
+			right->search(n);
+		}
+		else {
+			return nullptr;
+		}
+	};
+};
+```
+
